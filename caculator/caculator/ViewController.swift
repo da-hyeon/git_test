@@ -13,8 +13,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var resultView: UILabel!
     
-    var firstNum = 0
-    var lastNum = -1
+    var firstNum = "0"
+    var lastNum = "-1"
+    var operationTouchCheck = false
+    
+    var touchOperationSymbol = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,31 +31,57 @@ class ViewController: UIViewController {
             resultView.text = ""
         }
     }
-
+    
+    func saveFirstNubmer(){
+        firstNum = resultView.text!
+    }
+    
+    func saveLastNumber() {
+        lastNum = resultView.text!
+    }
+    
+    func finalCalculator () {
+        let first = Int(firstNum)
+        let last = Int(lastNum)
+        
+        if touchOperationSymbol == "+" {
+            resultView.text = (String)(first! + last!)
+        } else if touchOperationSymbol == "-" {
+            resultView.text = (String)(first! - last!)
+        }
+    }
     
     @IBAction func touchOperation(_ sender: UIButton) {
+        
+        
         if sender.currentTitle == "+" {
-
+            operationTouchCheck = true
+            saveFirstNubmer()
+            touchOperationSymbol = "+"
         } else if  sender.currentTitle == "-" {
-            
+            operationTouchCheck = true
+            saveFirstNubmer()
+            touchOperationSymbol = "-"
         } else if  sender.currentTitle == "x" {
             
         } else if  sender.currentTitle == "/" {
             
         } else if  sender.currentTitle == "C" {
             resultView.text = "0"
-        }else if  sender.currentTitle == "=" {
-            
+        } else if  sender.currentTitle == "=" {
+            saveLastNumber()
+            finalCalculator()
         }
     }
     
     @IBAction func touchDigit(_ sender: UIButton) {
+        if operationTouchCheck {
+            resultView.text = ""
+            operationTouchCheck = false
+        }
         
         zeroCheck()
-        
-        let tempText = resultView.text
-        
-        resultView.text =  tempText! + sender.currentTitle!
+        resultView.text =  resultView.text! + sender.currentTitle!
         
     }
     
