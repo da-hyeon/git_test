@@ -9,12 +9,37 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var resultView: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
 
-// test commit
+    
+    @IBAction func touchOperation(_ sender: UIButton) {
+        if sender.currentTitle == "+" {
+            
+        } else if  sender.currentTitle == "-" {
+            
+        } else if  sender.currentTitle == "x" {
+            
+        } else if  sender.currentTitle == "/" {
+            
+        } else if  sender.currentTitle == "c" {
+            
+        }else if  sender.currentTitle == "=" {
+            
+        }
+    }
+    
+    @IBAction func touchDigit(_ sender: UIButton) {
+        
+        
+    }
+    
 }
 
