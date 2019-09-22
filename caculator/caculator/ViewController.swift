@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var resultView: UILabel!
     
+    var firstNum = 0
+    var lastNum = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,17 +23,24 @@ class ViewController: UIViewController {
     }
 
     
+    func zeroCheck() {
+        if resultView.text == "0" {
+            resultView.text = ""
+        }
+    }
+
+    
     @IBAction func touchOperation(_ sender: UIButton) {
         if sender.currentTitle == "+" {
-            
+
         } else if  sender.currentTitle == "-" {
             
         } else if  sender.currentTitle == "x" {
             
         } else if  sender.currentTitle == "/" {
             
-        } else if  sender.currentTitle == "c" {
-            
+        } else if  sender.currentTitle == "C" {
+            resultView.text = "0"
         }else if  sender.currentTitle == "=" {
             
         }
@@ -38,6 +48,11 @@ class ViewController: UIViewController {
     
     @IBAction func touchDigit(_ sender: UIButton) {
         
+        zeroCheck()
+        
+        let tempText = resultView.text
+        
+        resultView.text =  tempText! + sender.currentTitle!
         
     }
     
