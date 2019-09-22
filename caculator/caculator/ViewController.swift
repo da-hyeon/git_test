@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        //내꺼야
+        //바꿨잖아? 왜 안바뀜?
+        
     }
 
 
