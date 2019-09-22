@@ -48,6 +48,10 @@ class ViewController: UIViewController {
             resultView.text = (String)(first! + last!)
         } else if touchOperationSymbol == "-" {
             resultView.text = (String)(first! - last!)
+        } else if touchOperationSymbol == "x" {
+            resultView.text = (String)(first! * last!)
+        } else if touchOperationSymbol == "/" {
+            resultView.text = (String)(first! / last!)
         }
     }
     
@@ -63,9 +67,13 @@ class ViewController: UIViewController {
             saveFirstNubmer()
             touchOperationSymbol = "-"
         } else if  sender.currentTitle == "x" {
-            
+            operationTouchCheck = true
+            saveFirstNubmer()
+            touchOperationSymbol = "x"
         } else if  sender.currentTitle == "/" {
-            
+            operationTouchCheck = true
+            saveFirstNubmer()
+            touchOperationSymbol = "/"
         } else if  sender.currentTitle == "C" {
             resultView.text = "0"
         } else if  sender.currentTitle == "=" {
